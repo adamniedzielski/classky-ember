@@ -1,0 +1,12 @@
+<ul class="artist-list">
+  {{#each}}
+    <li class="artist-link">
+      {{#link-to "artist" id}}
+        <h2 class="artist-name">
+          {{name}}
+        </h2>
+        <img {{bind-attr src=image}}>
+      {{/link-to}}
+    </li>
+  {{/each}}
+</ul>
