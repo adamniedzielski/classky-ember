@@ -3,7 +3,7 @@
 </h2>
 <div class="artist-content">
   <ul class="albums">
-    {{#each album in albums}}
+    {{#each album in albums itemController="album"}}
       <li>
         {{album.title}}
         {{#if album.spotifyUrl}}
