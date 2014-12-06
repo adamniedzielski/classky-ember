@@ -1,1 +1,17 @@
-{{outlet}}
+<h2 class="artist-name">
+  {{name}}
+</h2>
+<div class="artist-content">
+  <ul class="albums">
+    {{#each album in albums}}
+      <li>
+        {{album.title}}
+        {{#if album.spotifyUrl}}
+          <a class="spotify" {{bind-attr href=album.spotifyUrl}}>Listen on Spotify</a>
+        {{/if}}
+      </li>
+    {{else}}
+      No albums, sorry!
+    {{/each}}
+  </ul>
+</div>
