@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import Artist from '../models/artist';
 
 var BASE_URL = 'http://ws.audioscrobbler.com/2.0';
 var API_KEY = 'cca4c83aff122fd01e10eb20e0cb8cf6';
@@ -25,11 +26,11 @@ function processResponse(data) {
 function buildArtist(artistData) {
   var image = _.last(artistData.image)['#text'];
 
-  return {
+  return Artist.create({
     id: artistData.mbid,
     name: artistData.name,
     image: image
-  };
+  });
 }
 
 function artistShouldHaveId(artist) {

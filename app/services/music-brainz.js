@@ -1,4 +1,6 @@
 import Ember from 'ember';
+import Album from '../models/album';
+import Artist from '../models/artist';
 
 var BASE_URL = 'http://musicbrainz.org/ws/2/artist/';
 
@@ -15,12 +17,13 @@ export default Ember.Object.extend({
 });
 
 function processResponse(data) {
+  var artist = Artist.create({ name: data.name });
+
   var albums = _.map(data['release-groups'], function (album) {
-    return { title: album.title };
+    return Album.create({ title: album.title, artist: artist });
   });
 
-  return {
-    name: data.name,
-    albums: albums
-  };
+  artist.set('albums', albums);
+
+  return artist;
 }
