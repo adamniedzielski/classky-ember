@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import Artist from '../models/artist';
+import request from 'ic-ajax';
 
 var BASE_URL = 'http://ws.audioscrobbler.com/2.0';
 var API_KEY = 'cca4c83aff122fd01e10eb20e0cb8cf6';
@@ -12,7 +13,7 @@ export default Ember.Object.extend({
       format: 'json'
     };
 
-    return Ember.$.getJSON(BASE_URL, params).
+    return request({ url: BASE_URL, data: params }).
       then(processResponse);
   }
 });

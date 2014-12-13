@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import request from 'ic-ajax';
 
 var BASE_URL = 'http://ws.spotify.com/search/1/album.json';
 
@@ -8,7 +9,7 @@ export default Ember.Object.extend({
       q: [artist, album].join(' ')
     };
 
-    return Ember.$.getJSON(BASE_URL, params)
+    return request({ url: BASE_URL, data: params })
       .then(processResponse);
   }
 });

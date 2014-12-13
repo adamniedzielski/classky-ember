@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import Album from '../models/album';
 import Artist from '../models/artist';
+import request from 'ic-ajax';
 
 var BASE_URL = 'http://musicbrainz.org/ws/2/artist/';
 
@@ -11,7 +12,7 @@ export default Ember.Object.extend({
       fmt: 'json'
     };
 
-    return Ember.$.getJSON(BASE_URL + id, params)
+    return request({ url: BASE_URL + id, data: params })
       .then(processResponse);
   }
 });
