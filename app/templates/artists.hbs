@@ -1,11 +1,11 @@
 <ul class="artist-list">
-  {{#each}}
+  {{#each artist in model}}
     <li class="artist-link">
-      {{#link-to "artist" id}}
+      {{#link-to "artist" artist.id}}
         <h2 class="artist-name">
-          {{name}}
+          {{artist.name}}
         </h2>
-        <img {{bind-attr src=image}}>
+        <img {{bind-attr src=artist.image}}>
       {{/link-to}}
     </li>
   {{/each}}
