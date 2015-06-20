@@ -1,5 +1,5 @@
 export function initialize(container, application) {
-  application.inject('controller', 'spotifyService', 'service:spotify');
+  application.inject('component', 'spotifyService', 'service:spotify');
 }
 
 export default {

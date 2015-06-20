@@ -1,14 +1,11 @@
 <h2 class="artist-name">
-  {{name}}
+  {{model.name}}
 </h2>
 <div class="artist-content">
   <ul class="albums">
-    {{#each album in albums itemController="album"}}
+    {{#each model.albums as |album|}}
       <li>
-        {{album.title}}
-        {{#if album.spotifyUrl}}
-          <a class="spotify" {{bind-attr href=album.spotifyUrl}}>Listen on Spotify</a>
-        {{/if}}
+        {{music-album model=album}}
       </li>
     {{else}}
       No albums, sorry!
