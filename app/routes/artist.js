@@ -1,7 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  musicBrainz: Ember.inject.service(),
+
   model: function (params) {
-    return this.musicBrainzService.getArtist(params.artist_id);
+    return this.get('musicBrainz').getArtist(params.artist_id);
   }
 });

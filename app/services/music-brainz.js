@@ -5,7 +5,7 @@ import request from 'ic-ajax';
 
 var BASE_URL = 'http://musicbrainz.org/ws/2/artist/';
 
-export default Ember.Object.extend({
+export default Ember.Service.extend({
   getArtist: function (id) {
     var params = {
       inc: 'release-groups',

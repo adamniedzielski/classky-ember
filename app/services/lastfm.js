@@ -5,7 +5,7 @@ import request from 'ic-ajax';
 var BASE_URL = 'http://ws.audioscrobbler.com/2.0';
 var API_KEY = 'cca4c83aff122fd01e10eb20e0cb8cf6';
 
-export default Ember.Object.extend({
+export default Ember.Service.extend({
   getHypedArtists: function () {
     var params = {
       method: 'chart.gethypedartists',
